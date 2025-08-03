@@ -21,7 +21,8 @@ Pi-hole’s Docker container wasn't exposing port 53 correctly, or firewall was 
 Allowed DNS traffic from Tailscale:
 sudo iptables -A INPUT -s 100.0.0.0/8 -p udp --dport 53 -j ACCEPT
 sudo iptables -A INPUT -s 100.0.0.0/8 -p tcp --dport 53 -j ACCEPT
-2. ❌ No remote access due to CGNAT (Jio Fiber)
+
+### 2. ❌ No remote access due to CGNAT (Jio Fiber)
 Problem:
 I had no public IP to access my Pi-hole from outside.
 Fix:
@@ -32,7 +33,8 @@ On the VM:
 sudo tailscale up --advertise-tags=tag:pihole --accept-dns=false
 On remote devices:
 Set Pi-hole’s Tailscale IP (e.g., 100.x.x.x) as the DNS resolver.
-3. ❌ Had to manually set DNS on each device
+
+### 3. ❌ Had to manually set DNS on each device
 Problem:
 Even after enabling --accept-dns=true, devices didn’t use the Pi-hole DNS by default.
 Fix:
@@ -41,19 +43,22 @@ Logged in to Tailscale admin console.
 Under “Global Nameservers”, added:
 100.x.x.x (Tailscale IP of Pi-hole)
 This auto-set the DNS across all devices without manually editing each one.
-4. ❌ Unbound not resolving domains
+
+### 4. ❌ Unbound not resolving domains
 Problem:
 Pi-hole was working, but Unbound didn’t resolve anything.
 Fix:
 
 I forgot to fetch root DNS hints. Fixed it by:
 curl -o /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache
-sudo systemctl restart unbound
-5. ❌ Forgot Pi-hole web password
+sudo systemctl restart 
+
+### 5. ❌ Forgot Pi-hole web password
 Fix:
 Reset it from inside the container:
 docker exec -it pihole pihole -a -p
-6. ❌ Pi-hole settings not saving after restart
+
+### 6. ❌ Pi-hole settings not saving after restart
 Problem:
 Every time I restarted the container, everything reset.
 Fix:
@@ -61,13 +66,15 @@ Fix:
 Added Docker volumes for persistence:
 -v $(pwd)/pihole/etc-pihole:/etc/pihole \
 -v $(pwd)/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
-✅ Final Setup Summary
+
+### ✅ Final Setup Summary
 Pi-hole blocks ads and tracks via DNS.
 Unbound handles private recursive DNS.
 All DNS traffic routes securely via Tailscale.
 CGNAT bypassed without port forwarding.
 DNS override works on all devices automatically.
-⭐ Tip:
+
+### ⭐ Tip:
 Always test using:
 nslookup doubleclick.net 100.x.x.x
 If it returns 0.0.0.0, blocking works 🎉
