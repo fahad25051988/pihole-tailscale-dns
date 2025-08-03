@@ -140,6 +140,8 @@ sudo tailscale up --advertise-tags=tag:pihole --accept-dns=false
 ### 7. Firewall Setup for DNS Access via Tailscale
 
 sudo iptables -A INPUT -s 100.0.0.0/8 -p udp --dport 53 -j ACCEPT
+
+
 sudo iptables -A INPUT -s 100.0.0.0/8 -p tcp --dport 53 -j ACCEPT
 
 
@@ -147,6 +149,8 @@ sudo iptables -A INPUT -s 100.0.0.0/8 -p tcp --dport 53 -j ACCEPT
 
 
 sudo iptables -A INPUT -p udp --dport 53 -j DROP
+
+
 sudo iptables -A INPUT -p tcp --dport 53 -j DROP
 
 
