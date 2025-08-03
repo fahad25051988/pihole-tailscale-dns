@@ -1,0 +1,62 @@
+# General OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.pid
+*.seed
+
+# Shell history
+.bash_history
+
+# Docker
+**/pihole/etc-pihole/*
+**/pihole/etc-dnsmasq.d/*
+!**/pihole/etc-pihole/README.md
+!**/pihole/etc-dnsmasq.d/README.md
+
+# WireGuard / Tailscale config
+*.conf
+*.key
+*.pem
+*.crt
+*.wg0
+*.ivpn
+
+# Unbound
+/var/lib/unbound/root.hints
+/etc/unbound/unbound.conf.d/pi-hole.conf
+
+# Secrets
+.env
+*.env.local
+*.secret
+
+# UTM / VM artifacts
+*.utm
+*.qcow2
+*.img
+*.iso
+*.vmdk
+
+# System backup/swap/temp
+*.bak
+*.swp
+*.tmp
+*.old
+
+# Python or markdown tools (if used for docs)
+__pycache__/
+*.pyc
+
+# VS Code or IDE junk
+.vscode/
+.idea/
+*.code-workspace
+
+# Node.js tooling (if used)
+node_modules/
+dist/
+build/
+
