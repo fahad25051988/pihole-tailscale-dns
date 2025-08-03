@@ -53,10 +53,11 @@ sudo apt update && sudo apt upgrade -y
 
 
 sudo apt install docker.io -y
----
+
 
 sudo usermod -aG docker $USER
----
+
+
 exit  # Then re-login
 
 
