@@ -110,6 +110,7 @@ sudo systemctl restart unbound
 
 
 curl -fsSL https://tailscale.com/install.sh | sh
+
 sudo tailscale up --advertise-tags=tag:pihole --accept-dns=false
 
 
