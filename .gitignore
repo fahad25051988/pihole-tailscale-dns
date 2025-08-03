@@ -17,7 +17,6 @@ Thumbs.db
 !**/pihole/etc-dnsmasq.d/README.md
 
 # WireGuard / Tailscale config
-*.conf
 *.key
 *.pem
 *.crt
