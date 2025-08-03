@@ -1,4 +1,4 @@
- Private DNS Ad-Blocking and Remote Access with Pi-hole + Tailscale
+ # Private DNS Ad-Blocking and Remote Access with Pi-hole + Tailscale
 
 ## 👋 Why I Built This
 
