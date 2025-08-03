@@ -53,8 +53,12 @@ sudo apt update && sudo apt upgrade -y
 
 
 sudo apt install docker.io -y
+---
+
 sudo usermod -aG docker $USER
+---
 exit  # Then re-login
+
 
 
 ![Docker-version](/screenshots/Docker-version.png)
@@ -86,7 +90,10 @@ sudo docker run -d \
 ### 5. Add Unbound for Private DNS
 
 sudo apt install unbound -y
-curl -o /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache
+---
+curl -o /var/lib/unbound/root.hints
+---
+ https://www.internic.net/domain/named.cache
 
 
 Create config:
@@ -99,8 +106,9 @@ Restart Unbound:
 
 
 sudo systemctl enable unbound
+---
 sudo systemctl restart unbound
-
+---
 
 ![unbound-rules](/screenshots/unbound+pi-hole-integration.png)
 
@@ -110,6 +118,7 @@ sudo systemctl restart unbound
 
 
 curl -fsSL https://tailscale.com/install.sh | sh
+---
 
 sudo tailscale up --advertise-tags=tag:pihole --accept-dns=false
 
