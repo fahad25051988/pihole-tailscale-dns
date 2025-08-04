@@ -50,21 +50,28 @@ Pi-hole was working, but Unbound didn’t resolve anything.
 Fix:
 
 I forgot to fetch root DNS hints. Fixed it by:
+
 curl -o /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache
+
 sudo systemctl restart 
 
 ### 5. ❌ Forgot Pi-hole web password
 Fix:
+
 Reset it from inside the container:
+
 docker exec -it pihole pihole -a -p
 
 ### 6. ❌ Pi-hole settings not saving after restart
 Problem:
 Every time I restarted the container, everything reset.
+
 Fix:
 
 Added Docker volumes for persistence:
+
 -v $(pwd)/pihole/etc-pihole:/etc/pihole \
+
 -v $(pwd)/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
 
 ### ✅ Final Setup Summary
