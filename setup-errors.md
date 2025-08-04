@@ -83,5 +83,7 @@ DNS override works on all devices automatically.
 
 ### ⭐ Tip:
 Always test using:
+
 nslookup doubleclick.net 100.x.x.x
+
 If it returns 0.0.0.0, blocking works 🎉
