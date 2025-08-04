@@ -197,6 +197,12 @@ Address: 0.0.0.0
 3. Other queries go to Unbound for secure, recursive resolution
 4. Everything stays encrypted, private, and works even behind CGNAT
 
+
+📝 Note: The connection from Unbound to the root DNS servers is not encrypted (DNS still uses port 53).
+But the traffic from your device to Pi-hole (and Unbound) is fully encrypted through Tailscale, so your ISP or others can’t see or log your DNS activity.
+Later, you can add DNS-over-HTTPS for full end-to-end encryption.
+
+
 ![architecture](/screenshots/Network-diagram.png)
 
 ---
