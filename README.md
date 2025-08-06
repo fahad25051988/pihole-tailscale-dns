@@ -45,8 +45,9 @@ Also, my internet provider (Jio Fiber) uses CGNAT, which means I don't get a pub
 
 ```shell
 sudo apt update && sudo apt upgrade -y
-![ubuntu-update](/screenshots/Ubuntu-Update.png)
 ```
+![ubuntu-update](/screenshots/Ubuntu-Update.png)
+
 ---
 
 ### 3. Install Docker
