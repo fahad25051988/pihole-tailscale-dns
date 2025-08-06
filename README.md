@@ -43,20 +43,20 @@ Also, my internet provider (Jio Fiber) uses CGNAT, which means I don't get a pub
 
 ### 2. Update Ubuntu
 
+```shell
 sudo apt update && sudo apt upgrade -y
-
 ![ubuntu-update](/screenshots/Ubuntu-Update.png)
-
+```
 ---
 
 ### 3. Install Docker
 
-
+```shell
 sudo apt install docker.io -y
-
-
+```
+```shell
 sudo usermod -aG docker $USER
-
+```
 
 exit  # Then re-login
 
@@ -68,7 +68,7 @@ exit  # Then re-login
 
 ### 4. Run Pi-hole in Docker
 
-
+```shell
 sudo docker run -d \
   --name pihole \
   -p 53:53/tcp -p 53:53/udp \
@@ -83,39 +83,36 @@ sudo docker run -d \
   --cap-add=NET_ADMIN \
   pihole/pihole:latest
 
-
+```
 ![pi-hole-web](/screenshots/Pihole-web-ui.png)
 
 ---
 
 ### 5. Add Unbound for Private DNS
 
+```shell
 sudo apt install unbound -y
+```
 
-
-
-curl -o /var/lib/unbound/root.hints
-
-
-
- https://www.internic.net/domain/named.cache
-
+```shell
+curl -o /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache
+```
 
 Create config:
 
-
+```shell
 sudo nano /etc/unbound/unbound.conf.d/pi-hole.conf
-
-
+```
+```shell
 Restart Unbound:
-
-
+```
+```shell
 sudo systemctl enable unbound
+```
 
-
-
+```shell
 sudo systemctl restart unbound
-
+```
 
 
 ![unbound-rules](/screenshots/unbound+pi-hole-integration.png)
@@ -124,35 +121,35 @@ sudo systemctl restart unbound
 
 ### 6. Install Tailscale
 
-
+```shell
 curl -fsSL https://tailscale.com/install.sh | sh
+```
 
 
-
-
+```shell
 sudo tailscale up --advertise-tags=tag:pihole --accept-dns=false
-
+```
 
 ![Tailscale-ip](/screenshots/Tailscale-ip.png)
 
 ---
 
 ### 7. Firewall Setup for DNS Access via Tailscale
-
+```shell
 sudo iptables -A INPUT -s 100.0.0.0/8 -p udp --dport 53 -j ACCEPT
-
-
+```
+```shell
 sudo iptables -A INPUT -s 100.0.0.0/8 -p tcp --dport 53 -j ACCEPT
-
+```
 
 (Optional: Block others)
 
-
+```shell
 sudo iptables -A INPUT -p udp --dport 53 -j DROP
-
-
+```
+```shell
 sudo iptables -A INPUT -p tcp --dport 53 -j DROP
-
+```
 
 ![Ip-tables](/screenshots/IP-table-rules.png)
 
@@ -175,16 +172,16 @@ Now every Tailscale-connected device automatically uses Pi-hole for DNS. Super e
 
 ### 9. Test on Remote Device
 
-
+```shell
 nslookup doubleclick.net 100.x.x.x
-
+```
 
 Should return:
 
-
+```shell
 Name: doubleclick.net
 Address: 0.0.0.0
-
+```
 
 ![remote-device](/screenshots/nslookup-remote-device.png)
 
